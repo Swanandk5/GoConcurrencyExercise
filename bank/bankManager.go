@@ -46,9 +46,9 @@ func printTransactions(account *Account) {
 }
 
 func processTransaction(transaction Transaction, bankAccount *Account, wg *sync.WaitGroup) {
-	bankAccount.mu.RLock()
-	defer bankAccount.mu.RUnlock()
+	bankAccount.Lock()
+	defer bankAccount.Unlock()
+	defer wg.Done()
 	bankAccount.balance += transaction.amount
 	bankAccount.transactions = append(bankAccount.transactions, transaction)
-	wg.Done()
 }

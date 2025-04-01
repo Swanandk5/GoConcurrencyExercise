@@ -8,7 +8,7 @@ import (
 type Account struct {
 	balance      int
 	transactions []Transaction
-	mu           sync.RWMutex
+	sync.RWMutex
 }
 
 type Transaction struct {
