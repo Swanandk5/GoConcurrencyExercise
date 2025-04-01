@@ -1,22 +1,14 @@
 package main
 
 import (
-	"fmt"
-	jsoniter "github.com/json-iterator/go"
-	"os"
+	"GoConcurrencyExercise/bank"
+	"GoConcurrencyExercise/images"
 )
 
 func main() {
-	data, err := os.ReadFile("urls.json")
-	if err != nil {
-		panic(err)
-	}
-	var urls []string
-	unmarshalErr := jsoniter.Unmarshal(data, &urls)
-	if unmarshalErr != nil {
-		fmt.Println(unmarshalErr.Error())
-		return
-	}
-	//FetchImagesUsingChannel(urls)
-	FetchImagesUsingWaitGroup(urls)
+	///exercise 1
+	images.Start()
+
+	///exercise 2
+	bank.ProcessTransactions()
 }
