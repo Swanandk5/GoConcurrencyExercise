@@ -17,6 +17,6 @@ func main() {
 		fmt.Println(unmarshalErr.Error())
 		return
 	}
-
-	FetchImagesUsingChannel(urls)
+	//FetchImagesUsingChannel(urls)
+	FetchImagesUsingWaitGroup(urls)
 }

@@ -11,13 +11,13 @@ func FetchImagesUsingChannel(urls []string) {
 	for i := 0; i < len(urls); {
 		select {
 		case imageChannel <- i:
-			go fetchImage(urls[i], imageChannel)
+			go fetchImageForChannel(urls[i], imageChannel)
 			i++
 		}
 	}
 }
 
-func fetchImage(url string, imageChannel chan int) {
+func fetchImageForChannel(url string, imageChannel chan int) {
 	//fetch image
 	fmt.Println("starting goroutine")
 	imageData, err := http.Get(url)
