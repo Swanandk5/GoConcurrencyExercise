@@ -14,12 +14,26 @@ func ProcessTransactions() {
 	}
 
 	transactions := []int{
+		30,
 		-200,
 		100,
 		500,
 		-3200,
 		1000,
 		450,
+		900,
+		30,
+		0,
+		123,
+		44,
+		35,
+		90,
+		123,
+		256,
+		345,
+		667,
+		134,
+		889,
 	}
 
 	wg := sync.WaitGroup{}
